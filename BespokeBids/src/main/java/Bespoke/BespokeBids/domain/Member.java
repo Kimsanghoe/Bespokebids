@@ -17,7 +17,7 @@ public class Member {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
+    @Column(name = "member_id",columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(unique = true)
@@ -53,5 +53,9 @@ public class Member {
         this.memberStatus = memberStatus;
         this.memberType = memberType;
         this.loginType = loginType;
+    }
+
+    public boolean checkPassword(String password) {
+        return this.password.equals(password);
     }
 }

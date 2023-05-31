@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,10 +21,10 @@ public class MemberService {
      *  회원 가입
      */
     @Transactional
-    public UUID join(Member member) {
+    public String join(Member member) {
         validateDuplicateMember(member);
         memberRepository.save(member);
-        return member.getId();
+        return member.getUserId();
     }
 
     /**
@@ -31,7 +32,7 @@ public class MemberService {
      * */
     private void validateDuplicateMember(Member member) {
         //EXCEPTION
-        List<Member> findMembers = memberRepository.findByUserId(member.getUserId());
+        Optional<Member> findMembers = memberRepository.findByUserId(member.getUserId());
         if (!findMembers.isEmpty()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
@@ -44,8 +45,10 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Member findOne(UUID memberId) {
-        return memberRepository.findOne(memberId);
+    public Member findOne(String userId) {
+        return memberRepository.findOne(userId);
     }
+
+
 
 }
