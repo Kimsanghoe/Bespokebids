@@ -3,14 +3,16 @@ package Bespoke.BespokeBids.web.login;
 import Bespoke.BespokeBids.SessionConst;
 import Bespoke.BespokeBids.domain.Member;
 import Bespoke.BespokeBids.domain.login.LoginService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
 @RequiredArgsConstructor
 @RequestMapping(value = "/login")
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
 public class LoginController {
 
     private final LoginService loginService;
@@ -31,4 +33,6 @@ public class LoginController {
         model.addAttribute("member", member);
         return "성공";
     }
+
+
 }

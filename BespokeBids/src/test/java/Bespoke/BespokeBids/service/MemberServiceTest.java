@@ -61,8 +61,18 @@ public class MemberServiceTest {
         //then
         member.getId().equals(findMember.stream().findAny().get().getId());
 
+    }
 
+    @Test
+    public void 멤버_탈퇴()throws Exception{
+        //given
+        Member member = new Member("kim", "1234", "kim", "010-000", "경기도", "김", LocalDateTime.now(), MemberStatus.ACTIVE, MemberType.BUYER, LoginType.OUR);
 
+        //when
+        memberRepository.memberQuit(member.getUserId());
+
+        //then
+        member.getMemberStatus().equals(MemberStatus.INACTIVE);
     }
 
 
