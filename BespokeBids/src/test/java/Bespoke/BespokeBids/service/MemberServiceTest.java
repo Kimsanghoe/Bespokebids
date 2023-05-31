@@ -35,6 +35,7 @@ public class MemberServiceTest {
     EntityManager em;
 
     @Test
+//    @Rollback(value = false)
     public void 회원_가입() throws Exception{
         //given
         Member member = new Member("kim", "1234", "kim", "010-000", "경기도", "김", LocalDateTime.now(), MemberStatus.ACTIVE, MemberType.BUYER, LoginType.OUR);
@@ -49,7 +50,7 @@ public class MemberServiceTest {
     }
 
     @Test
-//    @Rollback(value = false)
+    @Rollback(value = false)
     public void 멤버_id로_찾기() {
         //given
         Member member = new Member("kim", "1234", "kim", "010-000", "경기도", "김", LocalDateTime.now(), MemberStatus.ACTIVE, MemberType.BUYER, LoginType.OUR);

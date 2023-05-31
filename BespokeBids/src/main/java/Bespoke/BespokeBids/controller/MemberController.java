@@ -6,12 +6,10 @@ import Bespoke.BespokeBids.MemberType;
 import Bespoke.BespokeBids.domain.Member;
 import Bespoke.BespokeBids.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,5 +31,6 @@ public class MemberController {
         System.out.println("실행됨");
         return "redirect:/";
     }
+
 
 }
