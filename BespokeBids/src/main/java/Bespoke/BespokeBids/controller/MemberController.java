@@ -20,8 +20,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
-
     @PostMapping(value = "/join_our")
     public String join(@RequestParam(value = "user_id") String userId,
                        @RequestParam(value = "password") String password,
