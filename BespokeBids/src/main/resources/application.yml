@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/bespokebids; #MVCC=TRUE # h2버전이 1.4.200이상일 경우 적용하지 않아도 된다.
+    url: jdbc:h2:tcp://localhost/~/bespokebids; #MVCC=TRUE # h2??? 1.4.200??? ?? ???? ??? ??.
     username: sa
-    password:
+    password: 1234
     driver-class-name: org.h2.Driver
 
   jpa:
@@ -10,7 +10,7 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-#          show_sql: true
+        #show_sql: true
         format-sql: true
 
 logging:
